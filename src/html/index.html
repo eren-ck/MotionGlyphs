@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MotionGlyphs</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  </head>
+
+  <body role="document">
+    <div class="d-flex" id="wrapper">
+      <!-- Sidebar -->
+      <div class="border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading text-center">
+          MotionGlyphs
+        </div>
+        <div class="text-center">
+          <a
+            href="#"
+            id="modal-link"
+            class="badge badge-dark"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Getting started"
+            >Info</a
+          >
+          <a
+            target="_blank"
+            href="https://scibib.dbvis.de/uploadedFiles/EuroVis_MotionGlyphs_final.pdf"
+            class="badge badge-dark"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Get the paper"
+            >Paper</a
+          >
+          <a
+            target="_blank"
+            href="https://github.com/eren-ck/MotionGlyphs"
+            class="badge badge-dark"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Get the source code"
+            >Code</a
+          >
+        </div>
+
+        <hr class="hr-white" />
+        <select
+          class="custom-select"
+          id="dataset-select"
+          data-toggle="tooltip"
+          data-placement="top"
+          title="Change the dataset"
+        >
+          <option value="" selected>Select a dataset</option>
+          <option value="fish-5.csv">5 Stickleback Fish</option>
+          <option value="data-1.csv">Reynolds Model</option>
+          <option value="data-2.csv">Couzin Model</option>
+          <option value="data-3.csv">Clusters</option>
+          <option value="fish-151.csv">151 Golden Shiner Fish</option>
+        </select>
+        <hr class="hr-white" />
+
+        <h5>Design</h5>
+        <label
+          class="radio"
+          data-toggle="tooltip"
+          data-placement="right"
+          title="Glyph visualization"
+        >
+          Glyph
+          <i
+            class="mdi mdi-20px mdi-checkbox-multiple-blank-circle-outline"
+          ></i>
+          <input
+            type="radio"
+            name="radio-vis"
+            checked="checked"
+            value="glyph"
+          />
+          <span class="checkround"></span>
+        </label>
+        <label
+          class="radio"
+          data-toggle="tooltip"
+          data-placement="right"
+          title="Node-link diagram visualization"
+        >
+          Network
+          <i class="mdi mdi-20px mdi-vector-line"></i>
+          <input type="radio" name="radio-vis" value="network" />
+          <span class="checkround"></span>
+        </label>
+
+        <hr class="hr-white" />
+        <div
+          data-toggle="tooltip"
+          data-placement="right"
+          title="Change the glyph arc width"
+        >
+          <h5>Arc Width</h5>
+
+          <label class="radio">
+            Small
+            <i class="mdi mdi-20px mdi-angle-acute"></i>
+            <input type="radio" name="radio-arc" value="0.1745" />
+            <span class="checkround"></span>
+          </label>
+          <label class="radio">
+            Medium
+            <i class="mdi mdi-20px mdi-angle-right"></i>
+            <input
+              type="radio"
+              checked="checked"
+              name="radio-arc"
+              value="0.349"
+            />
+            <span class="checkround"></span>
+          </label>
+          <label class="radio">
+            Large
+            <i class="mdi mdi-20px mdi-angle-obtuse"></i>
+            <input type="radio" name="radio-arc" value="0.7854" />
+            <span class="checkround"></span>
+          </label>
+        </div>
+        <hr class="hr-white" />
+
+        <form
+          data-toggle="tooltip"
+          data-placement="right"
+          title="Filter the links"
+        >
+          <h5>Filter Links</h5>
+          <div class="form-group" id="form-filter-links-slider">
+            <input
+              type="range"
+              class="form-control-range"
+              id="filter-links-slider"
+            />
+          </div>
+        </form>
+
+        <hr class="hr-white" />
+        <div
+          class="btn-group col text-center"
+          data-toggle="tooltip"
+          data-placement="right"
+          title="Display movement features"
+        >
+          <button
+            type="button"
+            class="btn btn-secondary dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Features
+          </button>
+          <div
+            class="dropdown-menu dropdown-menu-right"
+            style="min-width: 200px;"
+          >
+            <label class="radio">
+              None
+              <input type="radio" name="radio-features" value="black" checked />
+              <span class="checkround"></span>
+            </label>
+            <div class="dropdown-divider"></div>
+            <label class="radio">
+              Speed
+              <input type="radio" name="radio-features" value="average_speed" />
+              <span class="checkround"></span>
+            </label>
+            <div class="dropdown-divider"></div>
+            <label class="radio">
+              Acceleration
+              <input
+                type="radio"
+                name="radio-features"
+                value="average_acceleration"
+              />
+              <span class="checkround"></span>
+            </label>
+          </div>
+        </div>
+        <br />
+        <br />
+        <svg id="main-vis-legend" width="200" height="45">
+          <rect
+            class="legend"
+            width="20"
+            height="20"
+            y="0"
+            x="20px"
+            style="fill: rgb(69, 117, 180);"
+          ></rect>
+          <rect
+            class="legend"
+            width="20"
+            height="20"
+            y="0"
+            x="40px"
+            style="fill: rgb(116, 173, 209);"
+          ></rect>
+          <rect
+            class="legend"
+            width="20"
+            height="20"
+            y="0"
+            x="60px"
+            style="fill: rgb(171, 217, 233);"
+          ></rect>
+          <rect
+            class="legend"
+            width="20"
+            height="20"
+            y="0"
+            x="80px"
+            style="fill: rgb(224, 243, 248);"
+          ></rect>
+          <rect
+            class="legend"
+            width="20"
+            height="20"
+            y="0"
+            x="100px"
+            style="fill: rgb(255, 255, 191);"
+          ></rect>
+          <rect
+            class="legend"
+            width="20"
+            height="20"
+            y="0"
+            x="120px"
+            style="fill: rgb(254, 224, 144);"
+          ></rect>
+          <rect
+            class="legend"
+            width="20"
+            height="20"
+            y="0"
+            x="140px"
+            style="fill: rgb(253, 174, 97);"
+          ></rect>
+          <rect
+            class="legend"
+            width="20"
+            height="20"
+            y="0"
+            x="160px"
+            style="fill: rgb(244, 109, 67);"
+          ></rect>
+          <rect
+            class="legend"
+            width="20"
+            height="20"
+            y="0"
+            x="180px"
+            style="fill: rgb(215, 48, 39);"
+          ></rect>
+          <text class="legend-text" y="40" x="20px">Low</text>
+          <text class="legend-text" y="40" x="160px">High</text>
+        </svg>
+
+        <hr class="hr-white" />
+        <h5>Aggregation</h5>
+        <label
+          class="check"
+          data-toggle="tooltip"
+          data-placement="right"
+          title="Apply spatio-temporal clustering"
+        >
+          Cluster
+          <input type="checkbox" id="cluster-checkbox" />
+          <span class="checkmark"></span>
+        </label>
+
+        <div
+          class="form-group"
+          id="cluster-slider-group"
+          data-toggle="tooltip"
+          data-placement="right"
+          title="Change the cluster granularity"
+        >
+          <label for="cluster-slider">Spatial Clustering Distance</label>
+          <input
+            type="range"
+            class="form-control-range"
+            id="cluster-slider"
+            min="0"
+            step="1"
+            value="1"
+          />
+        </div>
+
+        <div class="col-md-2 fixed-bottom text-center">
+          <a href="imprint-dsgvo.html" class="text-white">Imprint & GDPR</a>
+        </div>
+      </div>
+
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <div class="row" id="nav-header">
+          <div class="col-md-1">
+            <button
+              class="btn rounded-circle"
+              id="menu-toggle"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              title="Hide the feature panel"
+            >
+              <i class="mdi mdi-24px mdi-menu"></i>
+            </button>
+          </div>
+          <div class="col-md-2">
+            <span class="float-right">
+              <button
+                class="btn btn-round rounded-circle btn-red text-center border-dark"
+                id="play-button"
+              >
+                <i class="mdi mdi-24px mdi-play-outline" id="play-icon"></i>
+                <i
+                  class="mdi mdi-24px mdi-spin mdi-loading"
+                  id="loading"
+                  style="display: none;"
+                ></i>
+              </button>
+              <button
+                class="btn btn-round rounded-circle btn-red text-center border-dark"
+                id="pause-button"
+              >
+                <i class="mdi mdi-24px mdi-pause"></i>
+              </button>
+            </span>
+          </div>
+
+          <div class="col-md-9">
+            <div class="range">
+              <input type="range" id="time-slider" />
+              <output id="time-slider-text">0</output>
+            </div>
+          </div>
+          <hr class="hr-grey" />
+        </div>
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div id="container" class="svg-container"></div>
+
+              <div id="tooltip-vis">
+                Cluster:
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <div
+      class="modal fade bd-example-modal-lg"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="getting-started-modal"
+      aria-hidden="true"
+      id="getting-started-modal"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="settings-modal-titel">
+              Getting Started
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div
+              id="carousel-getting-started"
+              class="carousel slide"
+              data-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="d-block w-100" src="slide-1.png" />
+                  <br />
+                  <div class="carousel-caption">
+                    <p class="text-justify text-dark">
+                      MotionGlyphs allows biologists to visually explore and
+                      abstract dense spatio-temporal network data in collective
+                      animal behavior. The figure presents the same time
+                      instance of golden shiner fish data in a node-link diagram
+                      (left), MotionGlyphs representation (middle), and with
+                      additional clustering (right). The color of the movers
+                      displays the speed (blue to red), and the links (light
+                      blue to dark blue) encode the similarity between movement
+                      properties (direction, speed, distance to each other). The
+                      example above shows how MotionGlyphs abstract
+                      relationships and aggregate movers into groups to reduce
+                      visual clutter and highlight different group structures.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="slide-2.png" />
+                  <div class="carousel-caption">
+                    <p class="text-justify text-dark">
+                      The glyph for single movers. The single glyph displays one
+                      mover and abstracts the weighted network links. The arrow
+                      depicts the movement direction, and the inner-circle of
+                      the glyph allows to display characteristics of the mover
+                      (e.g., speed). The outer-ring of the glyph is essentially
+                      a doughnut chart with segments that aim to summarize
+                      median link weights to other movers that are positioned in
+                      a specific direction.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="slide-3.png" />
+                  <div class="carousel-caption">
+                    <p class="text-justify text-dark">
+                      The cluster glyph abstracts a group of movers. The cluster
+                      glyph enables to present the underlying group structure of
+                      an applied ST-DBSCAN. We visualize the underlying group
+                      structure as an additional level of detail view for
+                      cluster interpretation to allow the exploration of the
+                      data at different scales. The inner-circle depicts the
+                      underlying spatio-temporal network of the group as an
+                      animated node-link diagram. The inner-circle also enables
+                      to display average attributes of the group (e.g., average
+                      speed) as the background color of the inner-circle. The
+                      node-link diagram in the center of the cluster glyph is
+                      also colored and encodes attribute information (e.g.,
+                      speed) for the nodes and the links. The outer-ring of the
+                      cluster glyph displays the abstracted links to all other
+                      glyphs. The cluster glyph size is normalized and mapped to
+                      the number of nodes in the group
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <a
+                class="carousel-control-prev"
+                href="#carousel-getting-started"
+                role="button"
+                data-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a
+                class="carousel-control-next"
+                href="#carousel-getting-started"
+                role="button"
+                data-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="bundle.js"></script>
+  </body>
+</html>

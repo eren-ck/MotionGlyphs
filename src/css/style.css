@@ -1,0 +1,523 @@
+/* network css */
+
+#network-links-group>line {
+    fill-opacity: 0;
+    stroke-width: 2;
+}
+
+/* highlight and faded for mouse over  */
+
+.faded {
+    stroke-opacity: 0.2;
+    fill-opacity: 0.2;
+}
+
+.highlighted {
+    stroke-opacity: 1 !important;
+    fill-opacity: 1 !important;
+}
+
+/* glyph design */
+
+.outer-circle {
+    stroke: #66615b;
+}
+
+.outer-circle-cluster {
+    fill: #fff;
+    stroke: #66615b;
+}
+
+.arc-paths {
+    fill-opacity: 0.75;
+    stroke-opacity: 0.75;
+}
+
+.network-group>line {
+    fill-opacity: 0;
+    stroke-width: 2;
+}
+
+.node-cluster{
+    stroke: #66615b;
+    stroke-opacity: 0.75;
+    stroke-width: 0.5;
+}
+
+/* SVG responsive css stuff */
+
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 88vh;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.svg-container  > svg{
+    border: 2px solid #66615b;
+}
+
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#tooltip-vis {
+    position: absolute;
+    display: none;
+    opacity: 1;
+    background-color: white;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 5px;
+    left: 330.5px;
+    top: 14px;
+}
+
+#background-rect{
+    fill: #80808080;
+}
+
+@media (min-width: 1400px) {
+    .modal-lg {
+      max-width: 1400px ;
+    }
+  }
+  
+  /* Legend stuff */
+.legend {
+    font-size: 12px;
+    stroke: #000;
+}
+
+.carousel-control-next {
+    filter: invert(100%);
+  }
+  
+  .carousel-control-prev {
+    filter: invert(100%);
+  }
+  
+  .carousel-caption {
+    color: #000;
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+  
+
+/* Range slider */
+
+.range {
+    display: table;
+    position: relative;
+    height: 25px;
+    margin-top: 5px;
+    background-color: rgb(245, 245, 245);
+    ;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border: 1px solid rgba(73, 80, 87, 0.7);
+    margin-right: 10px;
+}
+
+.range input[type="range"] {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    -ms-appearance: none !important;
+    -o-appearance: none !important;
+    appearance: none !important;
+    display: table-cell;
+    width: 100%;
+    background-color: transparent;
+    height: 30px;
+    cursor: pointer;
+}
+
+.range input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    -ms-appearance: none !important;
+    -o-appearance: none !important;
+    appearance: none !important;
+    width: 10px;
+    height: 28px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0px;
+    background-color: #cb3400;
+}
+
+.range input[type="range"]::-moz-slider-thumb {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    -ms-appearance: none !important;
+    -o-appearance: none !important;
+    appearance: none !important;
+    width: 10px;
+    height: 28px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0px;
+    background-color: #cb3400;
+}
+
+.range output {
+    display: table-cell;
+    padding: 3px 5px 2px 5px;
+    min-width: 70px;
+    color: rgb(255, 255, 255);
+    background-color: #cb3400;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.range input[type="range"] {
+    outline: none;
+}
+
+
+/* Sidebar wrapper stuff */
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: 10px;
+    padding: 20px;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+    background: #66615b;
+    color: #fff;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    width: 15rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+    line-height: 1em;
+}
+
+#page-content-wrapper {
+    min-width: 95vw; 
+    background-color: #f4f3ef;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -17rem;
+    }
+}
+
+#menu-toggle {
+    background-color: #66615b;
+    color: #fff;
+}
+
+.hr-white {
+    height: 2px;
+    width: calc(100% - 30px);
+    background-color: rgba(255, 255, 255, .5);
+}
+
+.hr-grey {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(38, 37, 35, .5);
+}
+
+.btn-red {
+    background-color: #cc3300;
+    color: #fff;
+}
+
+#nav-header {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+}
+
+.radio {
+    display: block;
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    cursor: pointer;
+    font-size: 1.2em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+
+/* Hide the browser's default radio button */
+
+.radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+/* Create a custom radio button */
+
+.checkround {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border-color: #cb3400;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 50%;
+}
+
+.radio input:checked~.checkround {
+    background-color: #fff;
+}
+
+.checkround:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the indicator (dot/circle) when checked */
+
+.radio input:checked~.checkround:after {
+    display: block;
+}
+
+
+/* Style the indicator (dot/circle) */
+
+.radio .checkround:after {
+    left: 2px;
+    top: 2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #cb3400;
+}
+
+
+/* The check */
+
+.check {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    padding-right: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Hide the browser's default checkbox */
+
+.check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+/* Create a custom checkbox */
+
+.checkmark {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #fff;
+    border-color: #cb3400;
+    border-style: solid;
+    border-width: 2px;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+
+.check input:checked~.checkmark {
+    background-color: #fff;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the checkmark when checked */
+
+.check input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* Style the checkmark/indicator */
+
+.check .checkmark:after {
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid;
+    border-color: #cb3400;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/* slider for the filter siderbar  */
+
+#sidebar-wrapper input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+}
+
+#sidebar-wrapper input[type=range]:focus {
+    outline: none;
+}
+
+#sidebar-wrapper input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 20px;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #000000;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+}
+
+#sidebar-wrapper input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 1px solid #000000;
+    height: 20px;
+    width: 10px;
+    background: #CC3300;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -1px;
+}
+
+#sidebar-wrapper input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #FFFFFF;
+}
+
+#sidebar-wrapper input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 20px;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #000000;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+}
+
+#sidebar-wrapper input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 1px solid #000000;
+    height: 20px;
+    width: 10px;
+    background: #CC3300;
+    cursor: pointer;
+}
+
+#sidebar-wrapper input[type=range]::-ms-track {
+    width: 100%;
+    height: 20px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+#sidebar-wrapper input[type=range]::-ms-fill-lower {
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 0px 0px #000000;
+}
+
+#sidebar-wrapper input[type=range]::-ms-fill-upper {
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 0px 0px #000000;
+}
+
+#sidebar-wrapper input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 0px 0px 0px #000000;
+    border: 1px solid #000000;
+    height: 20px;
+    width: 10px;
+    background: #CC3300;
+    cursor: pointer;
+}
+
+#sidebar-wrapper input[type=range]:focus::-ms-fill-lower {
+    background: #FFFFFF;
+}
+
+#sidebar-wrapper input[type=range]:focus::-ms-fill-upper {
+    background: #FFFFFF;
+}
