@@ -2,7 +2,7 @@ MotionGlyphs
 ============================================
 Visual Abstraction of Spatio-Temporal Networks in Collective Animal Behavior
 <p align="center">
-  <img width="800" src="static/slide-1.png">
+  <img width="800" src="static/teaser.png">
 </p>
   
 ### Abstract
