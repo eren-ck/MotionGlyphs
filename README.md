@@ -54,5 +54,5 @@ The datasets were preprocessed and clustered with the following packages:
 * [ST-OPTICS](https://github.com/eren-ck/st_optics) - the usage of the package is optional
 
 ## License
-Released under MIT License. See the [LICENSE](LICENSE) file for details.
+Released under GPL-3 License. See the [LICENSE](LICENSE) file for details.
 The package was developed by Eren Cakmak from the [Data Analysis and Visualization Group](https://www.vis.uni-konstanz.de/) and the [Department of Collective Behaviour](http://collectivebehaviour.com) at the University Konstanz funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under Germany's Excellence Strategy – EXC 2117 – 422037984.
